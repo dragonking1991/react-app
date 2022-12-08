@@ -1,12 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Helmet } from "react-helmet";
+import "./index.css";
+// import App from './App';
+// import ClasslistComp from './Components/ClasslistCompSample';
+import ControlElements from "./Components/ControlElements";
+import ClasslistCompSample from "./Components/ClasslistCompSample";
 // import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <App />
+  <>
+    {/* <App /> */}
+    {/* <ClasslistComp /> */}
+
+    <ControlElements />
+  </>
   // <React.StrictMode>
   // </React.StrictMode>
 );
