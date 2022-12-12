@@ -9,7 +9,7 @@ export function RenderCalls() {
 
   const listHtml = list.map((item) => (
     <li key={item}>
-      <Link to={`/history/${item}`}>{item}</Link>
+      <Link to={`/history/${item}`}>{store[item]?.phone || item}</Link>
     </li>
   ));
 
