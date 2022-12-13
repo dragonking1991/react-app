@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { CallStore } from "../Contexts/CallContext";
+import { CallStore } from "../../Contexts/CallContext";
 
 export default function RenderCallsDetail() {
   const store = useContext(CallStore);

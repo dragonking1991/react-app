@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import { CallStore } from "../Contexts/CallContext";
+import { CallStore } from "../../Contexts/CallContext";
 import RenderCallsDetail from "./RenderCallsDetail";
 
 export function RenderCalls() {
