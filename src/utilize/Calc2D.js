@@ -1,14 +1,3 @@
-export const setEleStyle = (el) => {
-  return {
-    position: "absolute",
-    top: `${el.eleTop}px`,
-    left: `${el.eleLeft}px`,
-    width: `${el.eleWidth}px`,
-    height: `${el.eleHeight}px`,
-    transform: `${el.eleTransform}`
-  };
-};
-
 export const point = (x, y) => {
   return { x: x, y: y };
 };
@@ -28,7 +17,7 @@ export const getPointByVector = (vector, point) => {
   return newPoint
 };
 
-export const getDegRotate = (lastA, lastB, currentA, currentB) => {
+export const getRotate = (lastA, lastB, currentA, currentB) => {
   const diffAx = lastB.x - lastA.x;
   const diffAy = lastB.y - lastA.y;
   const diffBx = currentB.x - currentA.x;
@@ -46,3 +35,17 @@ export const getDistance = (pointA, pointB) => {
   const diffY = pointA.y - pointB.y;
   return Math.sqrt(diffX * diffX + diffY * diffY);
 }
+
+export const setEleStyle = (el, id) => {
+  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  return {
+    position: "absolute",
+    top: `${el.eleTop}px`,
+    left: `${el.eleLeft}px`,
+    width: `${el.eleWidth}px`,
+    height: `${el.eleHeight}px`,
+    transform: `scale(${el.eleScale}) rotate(${el.eleRotate}deg)`,
+    background: `#${randomColor}`,
+    zIndex: id + 10,
+  };
+};

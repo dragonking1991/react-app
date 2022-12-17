@@ -5,18 +5,15 @@ import Element from "./Element";
 class ControlElements extends React.Component {
   constructor(props) {
     super(props);
-    this.warpperRef = React.createRef();
+    this.warpperRef = React.createRef(null);
+    this.trashRef = React.createRef(null);
+    this.childId = React.createRef(0);
     this.state = {
       childs: [],
     };
   }
 
   componentDidMount() {
-    this.wrapper = this.warpperRef.current;
-    console.log("wrapper", this.wrapper);
-    this.maxWidth = this.wrapper?.offsetWidth || 0;
-    this.maxHeight = this.wrapper?.offsetHeight || 0;
-
     document.addEventListener("gesturestart", (e) => e.preventDefault());
   }
 
@@ -26,27 +23,60 @@ class ControlElements extends React.Component {
 
   render() {
     const createElement = () => {
+      this.childId.current += 1;
+      this.maxWidth = this.warpperRef.current?.offsetWidth || 0;
+      this.maxHeight = this.warpperRef.current?.offsetHeight || 0;
+
       const infoChild = {
+        id: this.childId.current,
         name: "Sticker",
+        src: "https://via.placeholder.com/150",
+        x: this.maxWidth / 2,
+        y: this.maxHeight / 2,
+        w: 150,
+        h: 150,
       };
+
       this.setState({
-        childs: this.state.childs.concat(<Element info={infoChild} />),
+        childs: this.state.childs.concat(
+          <Element
+            key={infoChild.id}
+            info={infoChild}
+            parentCallBack={checkElement}
+          />
+        ),
       });
+    };
+
+    const checkElement = (event, point) => {
+      const trashTop = this.trashRef.current?.offsetTop || 0;
+      const trashLeft = this.trashRef.current?.offsetLeft || 0;
+      const trashWidth = this.trashRef.current?.offsetWidth || 0;
+      const trashHeight = this.trashRef.current?.offsetHeight || 0;
+      const checkIntentRemoveElement =
+        point.x < trashLeft ||
+        point.y < trashTop ||
+        point.x > trashLeft + trashWidth ||
+        point.y > trashTop + trashHeight;
+      console.log(!checkIntentRemoveElement,event)
+
+      !checkIntentRemoveElement &&
+        this.setState({
+          childs: this.state.childs.filter((child) => child !== event.target),
+        });
+        console.log(this.state.childs);
     };
 
     return (
       <>
-        <div
-          className="wrapper"
-          ref={this.warpperRef}
-          // onTouchStart={(event) => handleWrapperTouchStart(event)}
-          // onTouchMove={(event) => handleWrapperTouchMove(event)}
-          // onTouchEnd={(event) => handleWrapperTouchEnd(event)}
-        >
+        <div className="wrapper" ref={this.warpperRef}>
           {this.state.childs}
           <button onClick={() => createElement()}>Create</button>
-          <div className="delete-zone">Delete</div>
+          <div className="destroy-zone" ref={this.trashRef}>
+            Trash
+          </div>
         </div>
+        {JSON.stringify(this.state.childs)}
       </>
     );
   }
