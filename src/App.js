@@ -1,12 +1,10 @@
 import "./App.css";
-import ControlElements from "./Components/ControlElements";
-// import DomsCtrl from "./Components/DomsCtrl";
+import CtrlDoms from "./Components/CtrlDoms";
 
 const App = () => {
   return (
     <>
-      <ControlElements /> 
-      {/* <DomsCtrl /> */}
+      <CtrlDoms /> 
     </>
   );
 };

@@ -30,7 +30,6 @@ class ControlElements extends React.Component {
       const infoChild = {
         id: this.childId.current,
         name: "Sticker",
-        src: "https://via.placeholder.com/150",
         x: this.maxWidth / 2,
         y: this.maxHeight / 2,
         w: 150,
@@ -48,23 +47,24 @@ class ControlElements extends React.Component {
       });
     };
 
-    const checkElement = (event, point) => {
+    const checkElement = ( point, id) => {
       const trashTop = this.trashRef.current?.offsetTop || 0;
       const trashLeft = this.trashRef.current?.offsetLeft || 0;
       const trashWidth = this.trashRef.current?.offsetWidth || 0;
       const trashHeight = this.trashRef.current?.offsetHeight || 0;
+
       const checkIntentRemoveElement =
         point.x < trashLeft ||
         point.y < trashTop ||
         point.x > trashLeft + trashWidth ||
         point.y > trashTop + trashHeight;
-      console.log(!checkIntentRemoveElement,event)
 
       !checkIntentRemoveElement &&
         this.setState({
-          childs: this.state.childs.filter((child) => child !== event.target),
+          childs: this.state.childs.filter(
+            (child) => parseInt(child.key) !== id
+          ),
         });
-        console.log(this.state.childs);
     };
 
     return (

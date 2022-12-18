@@ -63,12 +63,8 @@ class Element extends React.Component {
       this.touchFocus = false;
       this.scaleLast = this.scaleCurrent;
       this.rotateLast = this.rotateCurrent;
-      this.props.parentCallBack(event, this.startA);
+      this.props.parentCallBack(this.startA, this.props.info.id);
     };
-
-    // const Image = () => {
-    //   return <img src={this.props.info.src} alt="pic" />;
-    // };
 
     return (
       <>
@@ -79,7 +75,6 @@ class Element extends React.Component {
           onTouchMove={(event) => handleElementTouchMove(event)}
           onTouchEnd={(event) => handleElementTouchEnd(event)}
         >
-          {/* {this.props.info.src && <Image />} */}
         </div>
       </>
     );
