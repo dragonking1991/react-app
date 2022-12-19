@@ -22,10 +22,12 @@ function Dom(props) {
     });
 
     if (touchList?.length > 1) {
+      const touchB = point(touchList[1].pageX, touchList[1].pageY);
+      console.log(touchB);
       setTouchData({
         ...touchData,
-        startB: point(touchList[1].pageX, touchList[1].pageY),
-        distanceLast: getDistance(touchData.startA, touchData.startB),
+        startB: touchB,
+        distanceLast: getDistance(touchData.startA, touchB),
       });
     }
   };
@@ -36,6 +38,7 @@ function Dom(props) {
     if (touchList?.length > 1) {
       const currentA = point(touchList[0].pageX, touchList[0].pageY);
       const currentB = point(touchList[1].pageX, touchList[1].pageY);
+
       setTouchData({
         ...touchData,
         distanceCurrent: getDistance(currentA, currentB),
@@ -49,18 +52,25 @@ function Dom(props) {
         touchData.startA,
         touchData.startB
       );
+
+      const scaleCurrent = touchData.scaleLast
+        ? scale * touchData.scaleLast
+        : scale;
+
+      const rotateCurrent = touchData.rotateLast
+        ? rotate + touchData.rotateLast
+        : rotate;
+
       setTouchData({
         ...touchData,
-        scaleCurrent: touchData.scaleLast ? scale * touchData.scaleLast : scale,
-        rotateCurrent: touchData.rotateLast
-          ? rotate + touchData.rotateLast
-          : rotate,
+        scaleCurrent: scaleCurrent,
+        rotateCurrent: rotateCurrent,
       });
 
       setStyle({
         ...style,
-        eleRotate: touchData.rotateCurrent,
-        eleScale: touchData.scaleCurrent,
+        eleRotate: rotateCurrent,
+        eleScale: scaleCurrent,
       });
     } else {
       const diffX = touchList[0].pageX - touchData.startA.x;
@@ -71,7 +81,10 @@ function Dom(props) {
         eleLeft: style.eleLeft + diffX,
         eleTop: style.eleTop + diffY,
       });
-      touchData.startA = point(touchList[0].pageX, touchList[0].pageY);
+      setTouchData({
+        ...touchData,
+        startA: point(touchList[0].pageX, touchList[0].pageY),
+      });
     }
   };
 

@@ -1,10 +1,9 @@
-import "./App.css";
-import { Counter } from "./app/counter/Counter";
+import ControlElements from "./Components/ControlElements";
 
 const App = () => {
   return (
     <>
-      <Counter />
+      <ControlElements />
     </>
   );
 };

@@ -72,7 +72,7 @@ class ControlElements extends React.Component {
         <div className="wrapper" ref={this.warpperRef}>
           {this.state.childs}
           <button onClick={() => createElement()}>Create</button>
-          <div className="destroy-zone" ref={this.trashRef}>
+          <div className="destroy" ref={this.trashRef}>
             Trash
           </div>
         </div>
