@@ -37,7 +37,6 @@ export const getDistance = (pointA, pointB) => {
 }
 
 export const setEleStyle = (el, id) => {
-  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
   return {
     position: "absolute",
     top: `${el.eleTop}px`,
@@ -45,7 +44,6 @@ export const setEleStyle = (el, id) => {
     width: `${el.eleWidth}px`,
     height: `${el.eleHeight}px`,
     transform: `scale(${el.eleScale}) rotate(${el.eleRotate}deg)`,
-    background: `#${randomColor}`,
     zIndex: id + 10,
   };
 };

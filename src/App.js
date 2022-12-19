@@ -1,10 +1,10 @@
 import "./App.css";
-import CtrlDoms from "./Components/CtrlDoms";
+import { Counter } from "./app/counter/Counter";
 
 const App = () => {
   return (
     <>
-      <CtrlDoms /> 
+      <Counter />
     </>
   );
 };
