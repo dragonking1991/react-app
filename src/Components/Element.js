@@ -4,7 +4,6 @@ import { getRotate, getDistance, point, setEleStyle } from "../utilize/Calc2D";
 class Element extends React.Component {
   constructor(props) {
     super(props);
-    this.pointer = React.createRef();
     this.state = {
       eleTop: this.props.info.y - this.props.info.h / 2 || 0,
       eleLeft: this.props.info.x - this.props.info.w / 2 || 0,
@@ -67,16 +66,15 @@ class Element extends React.Component {
     };
 
     return (
-      <>
-        <div
-          className="element"
-          style={setEleStyle(this.state, this.props.info.id)}
-          onTouchStart={(event) => handleElementTouchStart(event)}
-          onTouchMove={(event) => handleElementTouchMove(event)}
-          onTouchEnd={(event) => handleElementTouchEnd(event)}
-        >
-        </div>
-      </>
+      <div
+        className="element"
+        style={setEleStyle(this.state, this.props.info.id)}
+        onTouchStart={(event) => handleElementTouchStart(event)}
+        onTouchMove={(event) => handleElementTouchMove(event)}
+        onTouchEnd={(event) => handleElementTouchEnd(event)}
+      >
+        <img src="../images/meme.png" alt="" />
+      </div>
     );
   }
 }

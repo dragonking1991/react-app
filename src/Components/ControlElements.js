@@ -76,7 +76,7 @@ class ControlElements extends React.Component {
             Trash
           </div>
         </div>
-        {JSON.stringify(this.state.childs)}
+        {/* {JSON.stringify(this.state.childs)} */}
       </>
     );
   }
