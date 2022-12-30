@@ -1,11 +1,9 @@
-import Form from "./Components/Form";
+import FormikForm from "./Components/FormikForm";
 
 const App = () => {
   return (
     <>
-      <Form>
-        
-      </Form>
+      <FormikForm />
     </>
   );
 };
