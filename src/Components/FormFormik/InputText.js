@@ -6,7 +6,7 @@ export default function TextInput({ label, ...props }) {
   return (
     <>
       <label className='flex text-white text-sm mt-4' htmlFor={props.id || props.name}>{label}</label>
-      <input className="border px-2 bg-slate-500 text-white rounded my-1 outline-none" {...field} {...props} id={props.id || props.name} />
+      <input className="border px-2 bg-slate-500 text-white text-sm rounded my-1 outline-none h-[30px]" {...field} {...props} id={props.id || props.name} />
       {meta.touched && meta.error ? (
         <div className="text-red-400 text-sm">{meta.error}</div>
       ) : null}

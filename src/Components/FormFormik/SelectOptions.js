@@ -17,7 +17,7 @@ export default function MySelect({ label, ...props }) {
   return (
     <>
       <label className='flex text-white text-sm mt-2' htmlFor={props.id || props.name}>{label}</label>
-      <select {...field} {...props} className="w-[193px] bg-slate-500 text-white px-1 text-sm h-[25px] rounded my-1 border" />
+      <select {...field} {...props} className="w-[193px] bg-slate-500 text-white px-1 text-sm h-[30px] rounded my-1 border" />
       {meta.touched && meta.error ? (
         <StyledErrorMessage className='text-red-500'>{meta.error}</StyledErrorMessage>
       ) : null}

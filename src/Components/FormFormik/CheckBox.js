@@ -5,7 +5,7 @@ export default function Checkbox({ children, ...props }) {
   const [field, meta] = useField({ ...props, type: "checkbox" });
   return (
     <>
-      <label className="flex text-white">
+      <label className="flex text-white mt-2">
         <input {...field} {...props} type="checkbox" className='mr-2' />
         <span className='text-sm'>
           {children}
