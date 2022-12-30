@@ -53,6 +53,7 @@ export default function SignupForm() {
           name="firstName"
           type="text"
           placeholder="Jane"
+          className="w-full"
         />
         <InputText
           label="Last Name"

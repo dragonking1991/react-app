@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
-import "./index.css";
+import "./index.scss";
 import App from "./App";
 import store from "./Components/ReduxStore/store";
 import { Provider } from "react-redux";
@@ -13,7 +13,9 @@ root.render(
   <>
     <Provider store={store}>
       <Router>
-        <App />
+        <div className="w-full">
+          <App />
+        </div>
       </Router>
     </Provider>
   </>
