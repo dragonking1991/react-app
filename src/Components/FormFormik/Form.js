@@ -2,9 +2,9 @@ import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import "./Form.scss";
-import InputText from "./FormFormik/InputText";
-import CheckBox from "./FormFormik/CheckBox";
-import SelectOptions from "./FormFormik/SelectOptions";
+import InputText from "./InputText";
+import CheckBox from "./CheckBox";
+import SelectOptions from "./SelectOptions";
 
 const initFields = {
   firstName: "",
@@ -47,13 +47,12 @@ export default function SignupForm() {
         console.log('setSubmitting', values);
       }}
     >
-      <Form>
+      <Form class="bg-slate-900 h-screen p-10">
         <InputText
           label="First Name"
           name="firstName"
           type="text"
           placeholder="Jane"
-          className="w-full"
         />
         <InputText
           label="Last Name"
@@ -78,7 +77,7 @@ export default function SignupForm() {
           I accept the terms and conditions
         </CheckBox>
 
-        <button type="submit" className="text-white border-none bg-yellow-500">Submit</button>
+        <button type="submit" className="text-white mt-2 border-none bg-yellow-500 px-12 py-1 font-bold uppercase rounded-full">Submit</button>
       </Form>
     </Formik>
   );

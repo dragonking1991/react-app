@@ -1,10 +1,8 @@
-import FormikForm from "./Components/FormikForm";
+import FormikForm from "./Components/FormFormik/Form";
 import './App.css'
 const App = () => {
   return (
-    <>
-      <FormikForm />
-    </>
+    <FormikForm />
   );
 };
 

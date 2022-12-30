@@ -13,9 +13,7 @@ root.render(
   <>
     <Provider store={store}>
       <Router>
-        <div className="w-full">
-          <App />
-        </div>
+        <App />
       </Router>
     </Provider>
   </>
