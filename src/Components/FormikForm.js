@@ -10,13 +10,13 @@ const initFields = {
   firstName: "",
   lastName: "",
   email: "",
-  acceptedTerms: false, // added for our checkbox
-  jobType: "" // added for our select
+  acceptedTerms: false,
+  jobType: ""
 }
 
 const schema = Yup.object().shape({
   firstName: Yup.string()
-    .max(15, "Must be 15 characters or less")
+    .max(15, "Must be 15 characters or less").matches(/^[a-z]+$/, 'Not Valid')
     .required("Required"),
   lastName: Yup.string()
     .max(20, "Must be 20 characters or less")
