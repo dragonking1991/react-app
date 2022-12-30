@@ -9,7 +9,6 @@ export default function RenderCallsDetail() {
     ? store[params.conversId].transcript
     : [];
   const nameUser = store[params.conversId]?.name || "";
-  // console.log('RenderCallsDetail',details)
 
   const detailHtml =
     (details?.length &&

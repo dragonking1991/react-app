@@ -39,10 +39,18 @@ function Dom(props) {
       const currentA = point(touchList[0].pageX, touchList[0].pageY);
       const currentB = point(touchList[1].pageX, touchList[1].pageY);
 
-      setTouchData({
-        ...touchData,
+      // setTouchData({
+      //   ...touchData,
+      //   distanceCurrent: getDistance(currentA, currentB),
+      // });
+
+      setTouchData(state => ({
+        ...state.touchData,
         distanceCurrent: getDistance(currentA, currentB),
-      });
+      }));
+
+
+
 
       const scale = touchData.distanceCurrent / touchData.distanceLast;
 

@@ -1,9 +1,11 @@
-import ControlElements from "./Components/ControlElements";
+import Form from "./Components/Form";
 
 const App = () => {
   return (
     <>
-      <ControlElements />
+      <Form>
+        
+      </Form>
     </>
   );
 };
