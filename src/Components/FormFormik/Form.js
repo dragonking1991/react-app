@@ -77,7 +77,7 @@ export default function SignupForm() {
           I accept the terms and conditions
         </CheckBox>
 
-        <button type="submit" className="text-white mt-2 border-none bg-yellow-500 px-12 py-1 font-bold uppercase rounded-full">Submit</button>
+        <button type="submit" className="text-white mt-4 border-none bg-yellow-500 px-12 py-1 font-bold uppercase rounded-full">Submit</button>
       </Form>
     </Formik>
   );
